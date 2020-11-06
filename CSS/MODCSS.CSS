@@ -1,0 +1,173 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	/*background-image: url(Imagenes/fondo1.jpg);*/
+	background-color: rgb(23 22 22)/*white*/;
+	background-position: center;
+	
+	font-family: 'Fira Sans', sans-serif;
+	
+	/*font-size: 12pt;*/
+	color:#ffa366;
+}
+footer a{
+	color: #ffa366;
+	text-decoration:none;
+	
+}
+footer a:hover{
+	color: #e6e6e6;
+	text-decoration:none;
+
+}
+/*para dar formato a los titulos*/
+.titulo{
+	font-family: 'Merriweather', serif;
+	color: #ffa366;
+	font-size: 18pt;
+	text-transform: uppercase;
+	
+}
+/*para modificar el contenido en las diferentes partes*/
+.contenido{
+	font-family: 'PT serif', serif;
+	color:#e6e6e6;
+	font-size: 18px;
+
+}
+
+/*para modificar los articulos*/
+.art{
+	margin-top: 5%;
+	margin-bottom: 10%;
+	margin-left:15%;
+
+}
+/*para modificar la posicion de la descripcion
+de recomendacion*/
+.art1{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left:15%;
+	
+}
+footer{
+	margin-top:5%;
+	text-align: center;
+	text-transform: uppercase;
+
+}
+.hr1{
+	height: 2px;
+	background-color: white;
+}
+/*modifica la posicion del bonton Login*/
+.posicion{
+	margin-top: 1%;
+	margin-left: 85%;
+}
+/*modifica la posicion de la barra de menu*/
+.posicionMenu{
+	margin-left: 40%;
+	margin-top: -5%;
+	border-radius: 20%;
+	border-color: white;
+}
+.posicionLogo{
+	margin-top: 0%;
+
+}
+.posicionLogo1{
+	margin-top: -4%;
+
+}
+
+/*modifica posicion del formulario */
+#formulario{
+	margin-top: 5%;
+}
+
+/*Modificadores de imagenes*/
+#Logo{
+	width: 250px;
+}
+/*modifica imagenes index*/
+.imgA{
+	margin-top: 10%;
+	width:100%;
+	height: 60%;
+}
+
+/*modifica tamaño de logos de redes*/
+
+
+
+
+
+/*para dar Formato a los diferentes aspectos del Menu*/
+#navbarMenu ul li {
+	
+	text-align: center;
+	cursor:pointer; 
+	text-transform: uppercase;
+	
+}
+#navbarMenu ul li:hover{
+
+	background-color: #e6e6e6;
+	color: #ffa366;
+	border-radius: 5px;
+}
+#navbarMenu ul li a{
+
+	color:#ffa366;
+	
+}
+#navbarMenu ul li a:hover{
+	color: #ffa366;
+}
+#navbarMenu ul li div{
+	background-color: rgb(23 22 22);
+}
+
+#navbarMenu ul li div a{
+	font-size: 10pt;
+	text-decoration: none;
+	 color: #ffa366;
+}
+#navbarMenu ul li div a:visited{
+	background-color:#e6e6e6;
+
+}
+.modEli{
+	text-decoration: none;
+	color: rgb(242, 247, 243);
+
+}
+.modEli:link{
+	text-decoration: none;
+}
+
+.separacion{
+	margin-right: 1%;
+}
+
+
+
+.text1{
+	text-align: center;
+	margin-left: 25%;
+}
+/*Cambiar color de fondo de los formularios*/
+
+
+.posicionPuntaje{
+	margin-left: 70%;
+	margin-top: -20%;
+}
+.marginButon{
+	margin-left: 2%;
+}
