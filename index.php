@@ -1,6 +1,6 @@
 <?php require("header.php"); 
 
-if (isset($_SESSION['login']) && $_SESSION['login']==0){
+if ($_SESSION['login']==0){
 header("location:login.php");
 }
 $db=conectar();
