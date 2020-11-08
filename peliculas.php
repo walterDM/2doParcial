@@ -62,7 +62,7 @@ $paginas=ceil($paginas);
 			        <p class="card-text"><?php echo $pelicula['descripcion'] ?></p>
 			        <p class="card-text"><small class="text-muted">Año:<?php echo $pelicula['anio']?>/  Duraciòn: <?php echo $pelicula['Duracion'] ?> MIN</small></p>
 			        <p class="card-text"><small class="text-muted">Puntaje:<?php echo puntaje($pelicula['puntaje'])?></small></p>
-			        <p class="card-text"><small class="text-muted">Puntaje:<?php echo $pelicula['genero']?></small></p>
+			        <p class="card-text"><small class="text-muted">Genero:<?php echo $pelicula['genero']?></small></p>
 			      </div>
 			    </div>
 			  </div>
