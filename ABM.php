@@ -22,6 +22,11 @@ if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
 	echo "INTENTO";
 	if (!empty($_POST['nombre']) && (!empty($_POST['anio']) && is_numeric($_POST['anio']) && is_numeric($_POST['duracion'])) && !empty($_POST['descripcion']) && !empty($_POST['genero']) && !empty($_POST['imagen'])) {
 			
+
+			if (preg_match('^/0-9/', $_POST['anio']) || preg_match('^/0-9/', $_POST['duracion'])){
+				header("location:Alta.php?estado=$resultado");
+			}
+
 			$resultado=Guardar();
 			if ($resultado==1) {
 				header("location:Alta.php?estado=$resultado");

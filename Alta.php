@@ -103,7 +103,7 @@ $estado="";
 		</script>";
 	
 }elseif(isset($_GET['estado'])&& $_GET['estado']==0){
-	echo "<script type='text/javascript'>alert('Compruebe que todos los campos esten completos');
+	echo "<script type='text/javascript'>alert('Compruebe que todos los campos esten completos o Correctos');
 		window.location('Alta.php')
 		</script>";
 }
