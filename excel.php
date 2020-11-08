@@ -31,12 +31,12 @@
 ?>
 
 <table border="1">
-	<tr style="background-color:red;">
-		<th>Titulo</th>
-		<th>Estreno</th>
-		<th>Puntaje</th>
-		<th>Duracion</th>
-		<th>Genero</th>
+	<tr>
+		<th style="background-color:red;">Titulo</th>
+		<th style="background-color:red;">Estreno</th>
+		<th style="background-color:red;">Puntaje</th>
+		<th style="background-color:red;">Duracion</th>
+		<th style="background-color:red;">Genero</th>
 	</tr>
 	<?php
 		foreach ($peliculas as $pelicula) {

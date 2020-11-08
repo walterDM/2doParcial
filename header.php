@@ -126,5 +126,8 @@
 			<button type="submit" class="btn btn-info" name="Ingresar" value="Ingresar"  alt="upload"><i class="fas fa-cloud-upload-alt" alt=></i></button>
 			</form>
 		<?php endif ?>
+			<form method="POST" action="excel.php ?>">
+			<button type="submit" class="btn btn-success"><i class="fas fa-file-excel" >  Descargar Catalogo</i></button>
+			</form>
 
 	<hr class="hr1">
