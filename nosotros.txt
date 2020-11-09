@@ -1,0 +1,15 @@
+<table border="1">
+	<tr>
+		<th style="background-color:blue;">Nombre </th>
+		<th style="background-color:blue;">Puesto </th>
+	</tr>
+
+				<tr>
+					<td> Walter Martinez </td>
+					<td> Fundador </td>
+				</tr>	
+                <tr>
+					<td> Christian Galiano </td>
+					<td> Socio </td>
+				</tr>	
+</table>

@@ -109,6 +109,9 @@
 		      <li class="nav-item">
 		        <a id="contacto" class="nav-link" href="contacto.php">Contacto</a>
 		      </li>
+			  <li class="nav-item">
+		        <a id="nosotros2" class="nav-link" href="nosotros.php">Nosotros</a>
+		      </li>
 		      
 		    
 		    </ul>
