@@ -13,18 +13,18 @@
 <center>
 <h2>Nuestro Servicio</h2>
   <div id="resumen" class="recuadro">
-        <p>Los nuevos costos de los paquetes de Netflix quedarán de la siguiente manera:
+        <p>Los nuevos costos de los paquetes de hardsoft quedarán de la siguiente manera:
         Plan Básico, un dispositivo en calidad estándar: 139 pesos, desde 129 pesos.
         Plan Estándar, dos dispositivos en calidad HD: 196 pesos, desde 169 pesos.
         Plan Premium, cuatro dispositivos en calidad UHD: 266 pesos, desde 229 pesos...VER MAS</p>
   </div>
 
   <div id="info" class="recuadro">
-    <p>Los nuevos costos de los paquetes de Netflix quedarán de la siguiente manera:
+    <p>Los nuevos costos de los paquetes de hardsoft quedarán de la siguiente manera:
         Plan Básico, un dispositivo en calidad estándar: 139 pesos, desde 129 pesos.
         Plan Estándar, dos dispositivos en calidad HD: 196 pesos, desde 169 pesos.
         Plan Premium, cuatro dispositivos en calidad UHD: 266 pesos, desde 229 pesos.</p>
-    <p>Netflix tiene tres planes: Básico, por un valor mensual de $9 dólares, Estándar ($14) y Premium ($18). ¿En qué se traducen estas tarifas en términos de contenido? En nada, porque el catálogo es el mismo para todos.
+    <p>hardsoft tiene tres planes: Básico, por un valor mensual de $9 dólares, Estándar ($14) y Premium ($18). ¿En qué se traducen estas tarifas en términos de contenido? En nada, porque el catálogo es el mismo para todos.
 
 Las limitaciones se presentan en forma de resolución: el Básico no se transmitirá por encima de una resolución de definición SD, (Standard Definition), mientras que justamente el plan Estándar está restringido al Full HD. Si subes a Premium podrás disfrutar del material en 4K Ultra HD.
 

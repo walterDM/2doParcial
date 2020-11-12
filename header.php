@@ -128,9 +128,20 @@
 			<form method="POST" action="ABM.php ?>">
 			<button type="submit" class="btn btn-info" name="Ingresar" value="Ingresar"  alt="upload"><i class="fas fa-cloud-upload-alt" alt=></i></button>
 			</form>
+		
+			<div class="row">
+				<div class="col-md-3">
+					<form method="POST" action="excel.php ?>">
+						<button type="submit" class="btn btn-success"><i class="fas fa-file-excel" >  Descargar Catalogo xls</i></button>
+					</form>
+				</div>
+				
+				<div class="col-md-2">
+					<form method="POST" action="csv.php ?>">
+						<button type="submit" class="btn btn-success"><i class="fas fa-file-excel" >  Descargar Catalogo csv</i></button>
+					</form>
+				</div>
+			</div>
 		<?php endif ?>
-			<form method="POST" action="excel.php ?>">
-			<button type="submit" class="btn btn-success"><i class="fas fa-file-excel" >  Descargar Catalogo</i></button>
-			</form>
 
 	<hr class="hr1">

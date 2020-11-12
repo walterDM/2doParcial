@@ -26,7 +26,7 @@
 
 		//cabeceras para descarga
 		header('Content-Type: application/xls');
-		header("Content-disposition: attachment; filename=\"my_csv_file.xls\""); 
+		header("Content-disposition: attachment; filename=\"pelliculas.xls\""); 
 		 
 ?>
 
