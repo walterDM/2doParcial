@@ -42,11 +42,11 @@
 		foreach ($peliculas as $pelicula) {
 			?>
 				<tr>
-					<td><?php echo $pelicula['titulo']; ?></td>
+					<td><?php echo utf8_decode($pelicula['titulo']); ?></td>
 					<td><?php echo $pelicula['anio']; ?></td>
 					<td><?php echo $pelicula['puntaje']; ?></td>
 					<td><?php echo $pelicula['Duracion']; ?></td>
-					<td><?php echo $pelicula['genero']; ?></td>
+					<td><?php echo utf8_decode($pelicula['genero']); ?></td>
 				</tr>	
 
 			<?php

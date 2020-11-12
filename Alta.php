@@ -97,12 +97,12 @@ $estado="";
 			 	</div>
 			</div>
 		</form>
-<?php if (isset($_GET['estado'])&& $_GET['estado']==1) {
+<?php if (isset($_GET['estado'])&& $_GET['estado']==0) {
 	echo "<script type='text/javascript'>alert('Datos Guardados');
 		window.location('Alta.php')
 		</script>";
 	
-}elseif(isset($_GET['estado'])&& $_GET['estado']==0){
+}elseif(isset($_GET['estado'])&& $_GET['estado']==1){
 	echo "<script type='text/javascript'>alert('Compruebe que todos los campos esten completos o Correctos');
 		window.location('Alta.php')
 		</script>";

@@ -4,6 +4,7 @@ if ($_SESSION['login']==0){
 }else{
 	$idUser=$_SESSION['login'];
 }; 
+
 $rs=mostrarPeliculas();
 $totalPeliculas=cantPelis();
 $pelicualsxPag=4;
@@ -23,8 +24,10 @@ $paginas=ceil($paginas);
 		};
 	function cantPelis(){
 			$db=conectar();
-			$consulta= mysqli_query($db,"SELECT * FROM movies");
-			$count=mysqli_num_rows($consulta);
+			$consulta= mysqli_query($db,"SELECT cantPelis() as cant");
+			while ($r=mysqli_fetch_array($consulta)) {
+				$count=$r['cant'];
+			}
 			return $count;
 		}
 ?>

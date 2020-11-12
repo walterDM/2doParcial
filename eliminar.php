@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
 	$db=conectar();
 	$consulta="SELECT * FROM movies where idMovies='$idMovie';";
 	$resultado=mysqli_query($db,$consulta);
-	$rs=$resultado->fetch_array(MYSQL_ASSOC);
+	$rs=mysqli_fetch_array($resultado);
 	$img=$rs['imagen'];
 	$titulo=$rs['titulo'];
 }
