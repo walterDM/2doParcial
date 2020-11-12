@@ -27,9 +27,24 @@ if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
 			header("location:Alta.php?estado=$resultado");
 		}
 		$db=conectar();
+
+		function fechaOk($fecha){
+			$query=mysqli_query($db,"SELECT fechaValida($fecha) as f");
+			while ($r=mysqli_fetch_array($query)) {
+				$fechaf=$r['f'];
+			}
+			if ($fechaf>=1) {
+				return $fecha;
+			}else{
+				return 2020;
+			}
+		}
+
+
 		$titulo=$_POST['nombre'];
 		$tipoImagen=$_POST['tipoImg'];
-		$anio=intval($_POST['anio']);
+		$fechaI=$_POST['anio'];
+		$anio=fechaOk(intval($fechaI));
 		$genero=$_POST['genero'];
 		$puntaje=intval($_POST['puntaje']);
 		$imagen=$_POST['imagen'];
@@ -40,7 +55,8 @@ if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
 		$enviar->bind_param("siiissss",$titulo,$anio,$puntaje,$duracion,$genero,$descripcion,$imagen,$tipoImagen);
 		$enviar->execute();
 		//$resultado=Guardar();
-		if ($enviar==1) {
+
+				if ($enviar==1) {
 			header("location:Alta.php?estado=$resultado");
 		}	
 	}else{

@@ -15,3 +15,4 @@ function mostrarText() {
   let x = $("#info");
   x.show("slow");
 }
+

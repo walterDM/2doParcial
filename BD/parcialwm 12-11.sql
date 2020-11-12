@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2020 a las 17:59:53
+-- Tiempo de generación: 12-11-2020 a las 20:07:35
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -40,6 +40,13 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `cantPelis` () RETURNS INT(11) begin
    declare cantidad int;
    Select count(idMovies) into cantidad from Movies;
    return cantidad;
+ end$$
+
+DROP FUNCTION IF EXISTS `fechaValida`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `fechaValida` (`fecha` INT) RETURNS INT(11) begin
+   declare fechaC int;
+   SELECT YEAR(CURDATE())-fecha into fechaC;
+   return fechaC;
  end$$
 
 DELIMITER ;
@@ -83,8 +90,7 @@ INSERT INTO `movies` (`idMovies`, `titulo`, `anio`, `puntaje`, `Duracion`, `gene
 (15, 'Godzilla: Rey de los monstruos', 2019, 4, 132, 'Acción/Fantasía', 'â€œGodzilla: Rey de los Monstruosâ€ sigue los heroÃ­cos esfuerzos de los criptozoÃ³logos de la agencia Monarch mientras tratan de enfrentrarse contra un grupo de enormes monstruos, incluyendo el propio Godzilla. Entre todos intentan resistir a las embestidas de Mothra, Rodan o del Ãºltimo nÃ©mesis de la humanidad: King Ghidorah. Estas ancianas criaturas harÃ¡n todo lo posible por sobrevivir, poniendo en riesgo la existencia del ser humano en el planeta.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/jLi7P6iWr7euFKTRd8UR11fkIXa.jpg', 'poster'),
 (16, 'X-Men: Dark Phoenix', 2019, 3, 114, 'Acción/Ciencia Ficción', 'Durante una misiÃ³n de rescate en el espacio, Jean casi muere al ser alcanzada por una misteriosa fuerza cÃ³smica. Cuando regresa a casa, esta fuerza no solo la ha hecho infinitamente mÃ¡s poderosa, sino tambiÃ©n mucho mÃ¡s inestable. Mientras lucha con la entidad que habita en su interior, Jean desata sus poderes de formas que no puede controlar ni comprender. Jean cae en una espiral fuera de control haciendo daÃ±o a aquellos que mÃ¡s ama y empieza a destruir los lazos que mantienen unidos a los X-Men. Mientras su familia se desmorona, deben encontrar la forma de unirse, no sÃ³lo para salvar el alma de Jean, sino tambiÃ©n para salvar el planeta de unos alienÃ­genas que quieren transformar esta fuerza en un arma y conquistar la galaxia.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/rdByKDkfyVuVSrkllzxKYXiZmTd.jpg', 'poster'),
 (17, 'Venom', 2018, 4, 112, 'Acción/Ciencia Ficción', 'Eddie Brock (Tom Hardy) es un consolidado periodista y astuto reportero que estÃ¡ investigando una empresa llamada FundaciÃ³n Vida. Esta fundaciÃ³n, dirigida por el eminente cientÃ­fico Carlton Drake (Riz Ahmed), estÃ¡ ejecutando secretamente experimentos ilegales en seres humanos y realizando pruebas que involucran formas de vida extraterrestres y amorfas conocidas como simbiontes. Durante una visita furtiva a la central, el periodista quedarÃ¡ infectado por un simbionte. ComenzarÃ¡ entonces a experimentar cambios en su cuerpo que no entiende, y escucharÃ¡ una voz interior, la del simbionte Venom, que le dirÃ¡ lo que tiene que hacer. Cuando Brock adquiera los poderes del simbionte que le usa como huÃ©sped, Venom tomarÃ¡ posesiÃ³n de su cuerpo, convirtiÃ©ndole en un despiadado y peligroso sÃºpervillano.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/yIzHw6az7SHEjxaVYy3hMd1Vyc.jpg', 'poster'),
-(18, 'John Wick 2: Pacto de sangre', 2017, 4, 122, 'Acción/Crimen', 'John Wick es forzado a salir del retiro por un ex asociado buscando tomar control del gremio internacional de asesinos. Obligado por un juramento de sangre, Wick viaja a Roma, donde lucharÃ¡ contra algunos de los asesinos mÃ¡s mortales del mundo.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bUie6wrbHEThBhpKoPbqZ6KQrU6.jpg', 'poster'),
-(19, 'werewolf', 2019, 3, 88, 'terror', 'Un grupo de niños liberados de un campo de concentración nazi tienen que afrontar el hambre y la sed y lidiar con unos perros agresivos en una mansión abandonada en el bosque.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/dc49Gx6SrVpzgTJ10s5VHipywGo.jpg', 'poster');
+(18, 'John Wick 2: Pacto de sangre', 2017, 4, 122, 'Acción/Crimen', 'John Wick es forzado a salir del retiro por un ex asociado buscando tomar control del gremio internacional de asesinos. Obligado por un juramento de sangre, Wick viaja a Roma, donde lucharÃ¡ contra algunos de los asesinos mÃ¡s mortales del mundo.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bUie6wrbHEThBhpKoPbqZ6KQrU6.jpg', 'poster');
 
 --
 -- Disparadores `movies`
@@ -121,7 +127,9 @@ CREATE TABLE `movies_eliminadas` (
 --
 
 INSERT INTO `movies_eliminadas` (`idMovies`, `titulo`, `anio`, `puntaje`, `Duracion`, `genero`, `descripcion`, `imagen`, `tipoImagen`, `usuario`, `Fecha_Eliminacion`) VALUES
-(20, 'Jungleland', 2020, 4, 98, 'accion', 'Un boxeador y su manager deben viajar por todo el país para un último combate, pero un inesperado compañero de viaje expone las grietas en su relación a lo largo del camino.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/hJIqDuugvXGMFKL9YlBzrogE2gg.jpg', 'recomendada', 'root@localhost', '2020-11-12 13:58:50');
+(19, 'werewolf', 2019, 3, 88, 'terror', 'Un grupo de niños liberados de un campo de concentración nazi tienen que afrontar el hambre y la sed y lidiar con unos perros agresivos en una mansión abandonada en el bosque.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/dc49Gx6SrVpzgTJ10s5VHipywGo.jpg', 'poster', 'root@localhost', '2020-11-12 16:05:09'),
+(20, 'Jungleland', 2020, 4, 98, 'accion', 'Un boxeador y su manager deben viajar por todo el país para un último combate, pero un inesperado compañero de viaje expone las grietas en su relación a lo largo del camino.', 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/hJIqDuugvXGMFKL9YlBzrogE2gg.jpg', 'recomendada', 'root@localhost', '2020-11-12 13:58:50'),
+(22, 'asd', 2020, 3, 32, 'asda', '123', '12424', 'poster', 'root@localhost', '2020-11-12 15:07:06');
 
 -- --------------------------------------------------------
 
@@ -207,13 +215,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `idMovies` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idMovies` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `movies_eliminadas`
 --
 ALTER TABLE `movies_eliminadas`
-  MODIFY `idMovies` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idMovies` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
