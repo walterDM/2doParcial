@@ -53,37 +53,10 @@ function cantPelis(){
 <div class="row">
 
 
-	<?php while ($pelicula=mysqli_fetch_array($sentenciaPeliculas)) :?>
-		<script>
-			function mostrar(){
-				$(document).ready(function(e){
-					$("#mas").click(function(){
-						$("#desc").show();
-						$("#menos").show();
-						$("#mas").hide();
-					});
-				});
-			}
-			function ocultar(){
-				$(document).ready(function(e){
-					$("#menos").click(function(){
-						$("#desc").hide();
-						$("#menos").hide();
-						$("#mas").show();
-					});
-				});
-			}
-				/*$(document).ready(function(e){
-					Function mostrar(){
-					$("#mas").click(function(){
-						$(".desc").show()
-					});}
-					$("#menos").click(function(){
-						$(".desc").hide()
-					});
-
-				})*/
-			</script>
+	<?php $cont=1;
+	 while ($pelicula=mysqli_fetch_array($sentenciaPeliculas)) :
+	 	$cont++;?>
+		
 
 			<div class="card mb-3 bg-dark separacion" style="max-width: 540px;">
 				<div class="row no-gutters">
@@ -93,9 +66,10 @@ function cantPelis(){
 					<div class="col-md-8">
 						<div class="card-body">
 							<h5 class="card-title"><?php echo utf8_decode($pelicula['titulo']) ?></h5>
-							<button type="submit" name="mas" id="mas" onclick="mostrar()" class="btn btn-warning marginButon"><i class="fas fa-sort-down"></i></button>
-							<button type="submit" name="menos" id="menos" style="display: none" onclick="ocultar()" class="btn btn-warning marginButon"><i class="fas fa-sort-up"></i></button>
-							<p class="card-text" id="desc" style="display: none"><?php echo utf8_decode($pelicula['descripcion']) ?></p>
+
+
+							<p class="card-text" id="desc" ><?php echo utf8_decode($pelicula['descripcion']) ?></p>
+
 							<p class="card-text"><small class="text-muted">Año:<?php echo $pelicula['anio']?>/  Duraciòn: <?php echo $pelicula['Duracion'] ?> MIN</small></p>
 							<p class="card-text"><small class="text-muted">Puntaje:<?php echo puntaje($pelicula['puntaje'])?></small></p>
 							<p class="card-text"><small class="text-muted">Genero:<?php echo $pelicula['genero']?></small></p>

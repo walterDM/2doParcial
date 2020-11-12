@@ -87,7 +87,7 @@ $rs=mostrarPeliculas();
 			    <div class="col-md-8">
 			      <div class="card-body">
 			        <h5 class="card-title"><?php echo $rs[$i]["titulo"]; ?></h5>
-			        <p class="card-text"><?php echo $rs[$i]["descripcion"]; ?></p>
+			        <p class="card-text"><?php echo utf8_decode($rs[$i]["descripcion"]); ?></p>
 			        <p class="card-text"><small class="text-muted">Año: <?php echo $rs[$i]["anio"]; ?></small></p>
 			      </div>
 			    </div>
