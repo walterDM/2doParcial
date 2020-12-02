@@ -12,6 +12,12 @@
 		$db=conectar();
 		$consulta= mysqli_query($db,"SELECT titulo, anio, puntaje, Duracion, Genero FROM movies"); 
 		 if ($consulta) {
+			ECHO "TITULO ;";
+			ECHO "ANIO ;";
+			ECHO "PUNTAJE;";
+			ECHO "DURACION ;";
+			ECHO "GENERO \n";
+
 		  	while ($result = $consulta->fetch_object()) {
 				ECHO $result->titulo.";";
 				ECHO $result->anio.";";
