@@ -7,21 +7,27 @@
 		return $conexion;
 	}
     conectar(); 
-    
-    function Peliculas(){
+
+
 		$db=conectar();
 		$consulta= mysqli_query($db,"SELECT titulo, anio, puntaje, Duracion, Genero FROM movies"); 
 		 if ($consulta) {
-		  	$result=array();
-		  	while ($p= mysqli_fetch_assoc($consulta)) {
-		  		$result[]=$p;
-		  	}
-		  	return $result;
-		}
-        };
-        
-		$peliculas=Peliculas();
-		
-		
-?>
+		  	while ($result = $consulta->fetch_object()) {
+				ECHO $result->titulo.";";
+				ECHO $result->anio.";";
+				ECHO $result->puntaje.";";
+				ECHO $result->Duracion.";";
+				ECHO $result->Genero."\n";
 
+
+		  	}
+		}
+
+
+		//cabeceras para descarga
+	header('Content-Type: application/csv');
+	header("Content-disposition: attachment; filename=peliculas.csv"); 
+
+
+
+?>
