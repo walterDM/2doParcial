@@ -13,17 +13,17 @@
 		$consulta= mysqli_query($db,"SELECT titulo, anio, puntaje, Duracion, Genero FROM movies"); 
 		 if ($consulta) {
 			ECHO "TITULO ;";
-			ECHO "ANIO ;";
+			ECHO utf8_decode("AÑO ;");
 			ECHO "PUNTAJE;";
 			ECHO "DURACION ;";
 			ECHO "GENERO \n";
 
 		  	while ($result = $consulta->fetch_object()) {
-				ECHO $result->titulo.";";
+				ECHO utf8_decode($result->titulo).";";
 				ECHO $result->anio.";";
 				ECHO $result->puntaje.";";
 				ECHO $result->Duracion.";";
-				ECHO $result->Genero."\n";
+				ECHO utf8_decode($result->Genero)."\n";
 
 
 		  	}

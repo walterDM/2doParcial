@@ -18,14 +18,27 @@ if (isset($_POST['Ingresar']) && !empty($_POST['Ingresar'])) {
 
 //se procede a guardar en la base de datos la informacion cargada
 if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
-	$resultado=0;
-	echo "INTENTO";
-	if (!empty($_POST['nombre']) && (!empty($_POST['anio']) && is_numeric($_POST['anio']) && is_numeric($_POST['duracion'])) && !empty($_POST['descripcion']) && !empty($_POST['genero']) && !empty($_POST['imagen'])) {
+	if (intval($_POST['anio'])>intval(date("Y"))){
+		echo "año Mayor";
+	} 
+	if(preg_match('/0-9{0,4}/', $_POST['anio'])){
+		echo "año incorrecto";
+	}
+	if(preg_match('/\d{3}$/', $_POST['duracion'])){
+		echo "duracion  Mayor a 4 digitos";
+	}else{
+		echo "duracion  = a 3 digitos ".$_POST['duracion'];
+	}
+
+		
+			//header("location:Alta.php?estado=1");
+		
+		$resultado=0;
+
+	/*if (!empty($_POST['nombre']) && (!empty($_POST['anio']) && is_numeric($_POST['anio']) && is_numeric($_POST['duracion'])) && !empty($_POST['descripcion']) && !empty($_POST['genero']) && !empty($_POST['imagen'])) {
 
 
-		if (preg_match('/0-9/', $_POST['anio']) || preg_match('/0-9/', $_POST['duracion'])){
-			header("location:Alta.php?estado=$resultado");
-		}
+		
 		$db=conectar();
 
 		function fechaOk($fecha){
@@ -61,38 +74,17 @@ if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
 		}	
 	}else{
 		header("location:Alta.php?estado=$resultado");
-	}
+	}*/
 	
 };
-/*function Guardar(){
 
-	$db=conectar();
-	$titulo=$_POST['nombre'];
-	$tipoImagen=$_POST['tipoImg'];
-	$anio=$_POST['anio'];
-	$genero=$_POST['genero'];
-	$puntaje=$_POST['puntaje'];
-	$imagen=$_POST['imagen'];
-	$descripcion=$_POST['descripcion'];
-	$duracion=$_POST['duracion'];
-
-	//$datos=array('titulo' =>$titulo ,'anio'=>$anio,'puntaje'=>$puntaje,'duracion'=>$duracion,'genero'=>$genero,'descripcion'=>$desccripcion,'imagen'=>$imagen,'tipoImagen'=>$tipoImagen);
-	$enviar=$db->prepare("CALL insertPelis(?,?,?,?,?,?,?,?)");
-	$enviar->bind_param("siiissss",'$titulo',$anio,$puntaje,$duracion,'$genero','$descripcion','$imagen','$tipoImagen');
-	$enviar->execute();
-
-	$Insert="INSERT INTO movies values (00,'$titulo','$anio','$puntaje','$duracion','$genero','$descripcion','$imagen','$tipoImagen')";
-	$enviar=mysqli_query($db,$Insert);
-	return $enviar;
-
-}*/
 //funcion e implementacion de modificaciones hechas
 if (isset($_POST['Modificar'] )&& !empty($_POST['Modificar'])) {
 	$id=$_POST['id'];
 	$db=conectar();
 	$consulta= "SELECT titulo from movies where idMovies='$id'";
 	$query=mysqli_query($db,$consulta);
-	$tipoBD=$query->fetch_array(MYSQL_ASSOC);
+	$tipoBD=mysqli_fetch_array($query);
 	
 	if (!empty($_POST['nombre']) && !empty($_POST['descripcion']) && is_numeric($_POST['anio'])&& is_numeric($_POST['duracion']) && !empty($_POST['imagen'])) {
 
