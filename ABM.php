@@ -18,26 +18,19 @@ if (isset($_POST['Ingresar']) && !empty($_POST['Ingresar'])) {
 
 //se procede a guardar en la base de datos la informacion cargada
 if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
+	$resultado=0;
 	if (intval($_POST['anio'])>intval(date("Y"))){
-		echo "año Mayor";
+		$resultado=1;
 	} 
 	if(preg_match('/0-9{0,4}/', $_POST['anio'])){
-		echo "año incorrecto";
+		$resultado=1;
 	}
-	if(preg_match('/\d{3}$/', $_POST['duracion'])){
-		echo "duracion  Mayor a 4 digitos";
-	}else{
-		echo "duracion  = a 3 digitos ".$_POST['duracion'];
-	}
-
+	if(preg_match('/\d{4}$/', $_POST['duracion'])){
+		$resultado=1;
 		
-			//header("location:Alta.php?estado=1");
-		
-		$resultado=0;
-
-	/*if (!empty($_POST['nombre']) && (!empty($_POST['anio']) && is_numeric($_POST['anio']) && is_numeric($_POST['duracion'])) && !empty($_POST['descripcion']) && !empty($_POST['genero']) && !empty($_POST['imagen'])) {
-
-
+	}	
+			//header("location:Alta.php?estado=1");	
+	if (!empty($_POST['nombre']) && (!empty($_POST['anio']) && is_numeric($_POST['anio']) && is_numeric($_POST['duracion'])) && !empty($_POST['descripcion']) && !empty($_POST['genero']) && !empty($_POST['imagen']) && $resultado==0) {
 		
 		$db=conectar();
 
@@ -69,12 +62,12 @@ if (isset($_POST['guardar'] )&& !empty($_POST['guardar'])) {
 		$enviar->execute();
 		//$resultado=Guardar();
 
-				if ($enviar==1) {
+		if ($enviar==1) {
 			header("location:Alta.php?estado=$resultado");
 		}	
 	}else{
 		header("location:Alta.php?estado=$resultado");
-	}*/
+	}
 	
 };
 

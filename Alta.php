@@ -49,7 +49,7 @@ $estado="";
 				<div class="col-md-3">
 					<div class="form-group">
 						<div class="contenido"><label for="duracion">duración:</label>
-							<input type="number" name="duracion" class="form-control" id="duracion" onchange="expresion()" placeholder="duracion de la Pelicula (en min)" required></div>
+							<input type="number" name="duracion" class="form-control" id="duracion" onkeypress="expresion()" placeholder="duracion de la Pelicula (en min)" required></div>
 						</div>
 					</div>
 				</div>
@@ -132,11 +132,11 @@ $estado="";
 				<script type="text/javascript">
 					function expresion(){
 						var dato_a_comprobar = document.getElementById("duracion").value;
-						   var valoresAceptados = /^[0-9]{0,3}+$/;
+						   var valoresAceptados =/\d{3}$/;
 						       if (dato.match(valoresAceptados)){
-						          alert ("Es numérico");
+						          return true;
 						       } else {
-						         alert ("No es numérico");
+						         return false;
 						      }
 					}
 				</script>
